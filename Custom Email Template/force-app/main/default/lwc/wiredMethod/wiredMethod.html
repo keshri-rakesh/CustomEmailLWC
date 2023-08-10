@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Opportunity Details using wire Method" icon-name="standard:opportunity">
+        <div class="slds-m-around_small">
+            <div>
+                <lightning-input value={stgName} label="Search by StageName" onchange={handleChange}></lightning-input>
+            </div>
+            <template for:each={records}
+            for:item="item">
+                <p key={item.id}>
+                    <lightning-card> Name: {item.Name} <br/>
+                    StageName: {item.StageName}
+                </lightning-card>
+                </p>
+            </template>
+            <template if:true={errors}>
+                There is an error while fetching the opportunity records!
+            </template> 
+        </div>
+    </lightning-card>
+</template>

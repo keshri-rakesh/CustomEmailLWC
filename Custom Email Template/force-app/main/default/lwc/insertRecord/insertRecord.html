@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="LWC Practical Record Create Form" icon-name="standard:account">
+        <div class="slds-var-p-around_x-small">
+            <lightning-input value={recLWCPractical.Name} required label="Name" onchange={handleNamechange} data-value="name"></lightning-input>
+            <lightning-input value={recLWCPractical.Email__c} required label="Email" type="Email" onchange={handleEmailchange} data-value="email"></lightning-input>
+            <lightning-input value={recLWCPractical.Phone__c} required label="Phone" type="Phone" onchange={handlePhonechange} data-value="phone"></lightning-input>
+            <br/>
+            <lightning-button label="Create" onclick={createLWCPracticalRec} variant="brand"></lightning-button> &nbsp;&nbsp;&nbsp;
+            <lightning-button label="Delete" onclick={deleteSelectedRowAction} variant="brand"></lightning-button>
+        </div>
+        <!--{receivedMessage}-->
+    </lightning-card>
+</template>

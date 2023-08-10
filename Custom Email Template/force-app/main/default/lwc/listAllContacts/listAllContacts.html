@@ -1,0 +1,89 @@
+<template>
+    <lightning-button variant="brand"
+        label={showContacts}
+        onclick={handleClick}
+    ></lightning-button>
+
+    <template if:true={isVisible}>
+
+    <lightning-card title="Contact DataTable">
+
+        <lightning-input
+            type="search"
+            onchange={handleChange}
+            label="Search Contacts"
+            value={searchKey}
+        ></lightning-input>
+
+        <lightning-datatable
+            data={data}
+            columns={columns}
+            key-field="id"
+            onrowselection={getSelectedRows}
+        >      
+        </lightning-datatable>
+        
+    </lightning-card>
+
+    <lightning-button variant="brand"
+        label="Next"
+        onclick={handleNext}
+    ></lightning-button>
+
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">Classic Email Templates</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-combobox 
+                    label="Select Email Template" 
+                    value={selectedTemplate} 
+                    options={emailTemplates} 
+                    onchange={handleTemplateChange}>
+                    </lightning-combobox>
+                    <div class="template-preview-container">
+                        <div class="template-preview">
+                            <!-- <h3 class="slds-text-heading_small">{selectedContact.Name} Preview</h3> -->
+                            <div class="slds-p-around_medium">
+                                {templatePreview}
+                                <!-- {templatePreview[contactList.Id]} -->
+                            </div>
+                        </div>
+                        <div class="navigation-buttons">
+                            <lightning-button-icon icon-name="utility:left" alternative-text="Previous" onclick={showPreviousContact} disabled={disablePrevious}></lightning-button-icon>
+                            <lightning-button-icon icon-name="utility:right" alternative-text="Next" onclick={showNextContact} disabled={disableNext}></lightning-button-icon>
+                        </div>
+                    </div>
+                    <!-- <template if:true={templatePreview}>
+                        <template for:each={templatePreview} for:item="preview">
+                            <div key={preview.contact.Id} class="template-preview">
+                                <h3 class="slds-text-heading_small">{preview.contact.Name} Preview</h3>
+                                <div class="slds-p-around_medium">
+                                    {preview.body}
+                                </div>
+                            </div>
+                        </template>
+                    </template> -->
+                    <!-- <template if:true={selectedTemplate}>
+                        <div class="template-preview">
+                            <h3 class="slds-text-heading_small">Preview</h3>
+                            <div class="slds-p-around_medium">
+                                {templatePreview}
+                            </div>
+                        </div>
+                    </template> -->
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Send Email" variant="brand" onclick={sendEmail}>
+                    </lightning-button>
+                    <lightning-button label="Close" variant="neutral" onclick={closeModal}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    
+    </template>
+</template>

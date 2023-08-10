@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="All Records of custom object" icon-name="custom:custom14">
+                    
+        <lightning-datatable  data={wireLWCPrac.data}  columns={columns} key-field="Id"  onrowselection={getSelectedIdAction}  > </lightning-datatable>
+ 
+        <!--<div slot="footer"> 
+            <lightning-button title="Delete" label="Delete Selected Row" size="small" variant="brand" icon-name="utility:delete" icon-position="right" onclick={deleteSelectedRowAction}></lightning-button>
+        </div>-->
+ 
+    </lightning-card>
+ 
+</template>
