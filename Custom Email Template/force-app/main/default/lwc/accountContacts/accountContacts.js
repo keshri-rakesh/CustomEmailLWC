@@ -100,4 +100,7 @@ export default class AccountContacts extends LightningElement {
         });
         this.dispatchEvent(event);
     }
+    hideModalBox() {  
+        this.isShowModalPopup = false;
+    }
 }

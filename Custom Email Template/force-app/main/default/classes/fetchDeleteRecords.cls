@@ -1,6 +1,6 @@
 public with sharing class fetchDeleteRecords {
     //delete multiple contact record in LWC
-    @AuraEnabled(cacheable=true)
+    /*@AuraEnabled(cacheable=true)
     public static List<LWC_Practical__c> fetchLWCPracticalRecord(){
         List<LWC_Practical__c> lwcpracList = [Select Id, Name, Email__c, Phone__c From LWC_Practical__c LIMIT 200];
         return lwcpracList;
@@ -22,5 +22,5 @@ public with sharing class fetchDeleteRecords {
         }
       }
       return fetchLWCPracticalRecord();
-    }
+    }*/
 }
