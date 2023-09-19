@@ -30,7 +30,7 @@ export default class AccountContacts extends LightningElement {
     async getContacts(){
         const data = await getAccountContacts({accountId:this.accountId});
         this.contacts = data;
-        System.debug('Data:',data);
+        //System.debug('Data:',data);
     }
 
     // Encapsulate logic for Lightning message service subscribe and unsubsubscribe
